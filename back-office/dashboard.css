@@ -1,14 +1,7 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.red-txt {
+    color: red !important;
 }
 
-nav a > img {
-    height: 45px;
+.blue-txt {
+    color: #33a2e2 !important;
 }
-
-.red-txt{
-color: red!important;
-}
-

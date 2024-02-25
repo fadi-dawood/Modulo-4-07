@@ -1,0 +1,87 @@
+/* General */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navbar*/
+nav a>img {
+    height: 45px;
+}
+
+#search-input{
+ background-color: white;
+ color: black;
+}
+
+#search-btn{
+    color: white;
+}
+
+#search-btn:hover{
+    background-color: #0b5ed7;
+}
+
+#search-input::placeholder {
+    color: black;
+  }
+
+nav .right-part .dropdown .btn>div {
+    object-fit: fill;
+    height: 100%;
+    display: inline-block;
+}
+
+nav .right-part .dropdown .btn>div>img {
+    height: 30px;
+}
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+}
+
+@media (max-width:991px) {
+    .navbar {
+        position: relative;
+    }
+
+    .navbar .right-part>div:last-of-type {
+        position: absolute;
+        top: 16px;
+        right: 90px;
+    }
+
+    .navbar .right-part>a:first-of-type {
+        display: none;
+    }
+}
+
+
+/* Footer */
+footer .social-icons i {
+    color: #7e7e7e !important;
+    font-size: 17px;
+}
+
+footer div:nth-of-type(2) a {
+    color: #7e7e7e !important;
+    font-size: 10px;
+    text-decoration: none;
+
+}
+
+footer button {
+    border: #7e7e7e 1px solid;
+}
+
+footer button span {
+    color: #7e7e7e !important;
+    font-size: 12px;
+}
+
+footer p {
+    color: #7e7e7e !important;
+    font-size: 9px;
+}
