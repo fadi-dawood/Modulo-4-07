@@ -17,7 +17,6 @@ async function getCall() {
             });
         const myJson = await res.json();
         showResulte(myJson);
-        console.log(myJson)
         filteredJson = [...myJson];
     } catch (err) {
         console.log(err);
@@ -28,7 +27,7 @@ async function getCall() {
 
 // show the products in the DOM
 function showResulte(array) {
-    // delete alla products;
+    // delete all products;
     resultCards.innerHTML = "";
 
     array.forEach(product => {
@@ -56,18 +55,34 @@ function showResulte(array) {
         productDes.classList.add("card-text");
         productDes.innerHTML = product.description;
 
-        let producLink = document.createElement("a");
-        producLink.href = `/product-page/product.html?id=${product._id}`
-        producLink.target = "_blank";
-        producLink.classList.add("btn-primary", "btn");
-        producLink.innerHTML = "Product details";
+        let btnContainer = document.createElement("div");
+        btnContainer.classList.add("d-flex", "justify-content-between");
+
+        let detailBtn = document.createElement("a");
+        detailBtn.href = `/product-page/product.html?id=${product._id}`
+        detailBtn.target = "_blank";
+        detailBtn.classList.add("btn-primary", "btn");
+        detailBtn.innerHTML = "Product details";
+
+        let cartBtn = document.createElement("button");
+        cartBtn.classList.add("btn-success", "btn");
+
+        cartBtn.addEventListener("click", () => {
+            addToCart(product);
+        })
+
+        let cartBtnTxt = document.createElement("i");
+        cartBtnTxt.classList.add("fa-shopping-cart", "fas");
 
         productContainer.appendChild(productImg);
         productContainer.appendChild(productInfo);
         productInfo.appendChild(productName);
         productInfo.appendChild(productPrice);
         productInfo.appendChild(productDes);
-        productInfo.appendChild(producLink);
+        productInfo.appendChild(btnContainer);
+        btnContainer.appendChild(detailBtn);
+        cartBtn.appendChild(cartBtnTxt);
+        btnContainer.appendChild(cartBtn);
 
         resultCards.appendChild(productContainer);
 
@@ -100,4 +115,16 @@ function filterNewCollection() {
         }
     })
     showResulte(filterResult);
+};
+
+// add products in the cart to the local storage
+function addToCart(productObject) {
+    let cartItems = [];
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+    };
+    cartItems.push(productObject);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    console.log(localStorage.getItem('cartItems'));
 };
