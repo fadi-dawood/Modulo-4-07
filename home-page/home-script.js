@@ -59,7 +59,7 @@ function showResulte(array) {
         btnContainer.classList.add("d-flex", "justify-content-between");
 
         let detailBtn = document.createElement("a");
-        detailBtn.href = `/product-page/product.html?id=${product._id}`
+        detailBtn.href = `../product-page/product.html?id=${product._id}`
         detailBtn.target = "_blank";
         detailBtn.classList.add("btn-primary", "btn");
         detailBtn.innerHTML = "Product details";
